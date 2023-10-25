@@ -1,5 +1,6 @@
 import './App.css';
 import BMI from './components/BMI-Calculator';
+import DarkMode from './components/DarkMode'
 
 function App() {
 
@@ -9,6 +10,7 @@ function App() {
         BMI Calculator
       </h1>
       <BMI/>
+      <DarkMode/>
     </div>
   )
 }
