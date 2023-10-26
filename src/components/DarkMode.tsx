@@ -1,3 +1,3 @@
 export default function DarkMode() {
-    return localStorage.theme = 'dark'
+    return localStorage.theme = 'light'
 }
