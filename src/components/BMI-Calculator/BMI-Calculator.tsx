@@ -1,5 +1,7 @@
 import './BMI-Calculator.css'
 import { useState } from 'react'
+import DarkModeIcon from '../DarkMode/DarkModeIcon'
+
 
 export default function BMI() {
     const [weight, setWeight] = useState<number>(0);
@@ -43,10 +45,11 @@ export default function BMI() {
                     value={height}
                     onChange={(e) => setHeight(parseFloat(e.target.value))}
                 />
-                <button type="submit" className='bg-zinc-700 hover:bg-zinc-600 text-white font-bold py-2 px-4 border-b-4 border-zinc-900 hover:border-zinc-700 rounded'> Submit </button>
+                <button type="submit" className=' bg-zinc-700 hover:bg-zinc-600 font-bold py-2 px-4 border-b-4 border-zinc-900 hover:border-zinc-700 rounded'> Submit </button>
             </form>
             <div>{Number.isNaN(height) ? "Type in your height" : `Your height is ${height}m`}</div>
             <div className='text-3xl font-bold m-10'>{message}</div>
+            <DarkModeIcon/>
         </div>
     );
 }
