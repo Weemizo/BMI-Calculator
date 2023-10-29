@@ -10,8 +10,6 @@ export default function BMI() {
     
     const assign = (size: number) => Number.isNaN(size) || size<=0 ? 0 : size;
 
-    // add dark mode
-
     const bmiCalc = (w: number, h: number) => {
         const bmi = (assign(w)/Math.pow(assign(h), 2)).toFixed(2);
         return Number.isNaN(parseInt(bmi)) ? "Please type in correct numbers" : `Your BMI is ${bmi}`
@@ -24,8 +22,9 @@ export default function BMI() {
 
     return (
         <div>
+            <DarkModeIcon/>
             <div className='text-xl font-bold mb-10'> This app currently supports only the metric system. [kilograms / meters] </div>
-            <div>{Number.isNaN(weight) ? "Type in your weight" : `Your weight is ${weight}kgs`}</div>
+            <div>{Number.isNaN(weight) || height<=0 ? "Type in your weight" : `Your weight is ${weight}kgs`}</div>
             <form onSubmit={handleSubmit}>
                 <input
                     step="any"
@@ -45,11 +44,11 @@ export default function BMI() {
                     value={height}
                     onChange={(e) => setHeight(parseFloat(e.target.value))}
                 />
-                <button type="submit" className=' bg-zinc-700 hover:bg-zinc-600 font-bold py-2 px-4 border-b-4 border-zinc-900 hover:border-zinc-700 rounded'> Submit </button>
+                {/* text-black dark:text-white bg-cyan-100 dark:bg-zinc-900 */}
+                <button type="submit" className=' dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 rounded'> Submit </button>
             </form>
-            <div>{Number.isNaN(height) ? "Type in your height" : `Your height is ${height}m`}</div>
+            <div>{Number.isNaN(height)|| height<=0 ? "Type in your height" : `Your height is ${height}m`}</div>
             <div className='text-3xl font-bold m-10'>{message}</div>
-            <DarkModeIcon/>
         </div>
     );
 }
