@@ -23,12 +23,14 @@ export default function BMI() {
 
   return (
     <div>
+      <div className="flex justify-center ">
       <DarkModeIcon />
-      <div className="text-xl font-bold mb-10">
-        {" "}
-        This app currently supports only the metric system. [kilograms / meters]{" "}
       </div>
-      <form onSubmit={handleSubmit}>
+      <div className="text-xl font-bold mb-10">
+  
+        This app currently supports only the metric system. [kilograms / meters]
+      </div>
+      <form onSubmit={handleSubmit} className="flex flex-col justify-center space-y-4 w-auto max-w-sm mx-auto">
         <input
           step="any"
           type="number"
@@ -51,10 +53,9 @@ export default function BMI() {
         />
         <button
           type="submit"
-          className=" dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 rounded"
+          className="flex justify-center max-w-xs mx-auto shadow-md dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 rounded"
         >
-          {" "}
-          Submit{" "}
+          Submit
         </button>
       </form>
       <div>
