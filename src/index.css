@@ -4,6 +4,4 @@
 
 :root {
   font-family: Inter;
-  @apply dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-70 dark:text-white;
-
 }

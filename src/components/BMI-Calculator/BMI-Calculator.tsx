@@ -24,13 +24,15 @@ export default function BMI() {
   return (
     <div>
       <div className="flex justify-center">
-      <DarkModeIcon />
+        <DarkModeIcon />
       </div>
       <div className="text-xl font-bold mb-10">
-  
         This app currently supports only the metric system. [kilograms / meters]
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col justify-center space-y-4 w-auto max-w-sm mx-auto">
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col justify-center space-y-4 w-auto max-w-sm mx-auto"
+      >
         <input
           step="any"
           type="number"
@@ -66,7 +68,9 @@ export default function BMI() {
           ? "Type in your measurement"
           : `You are ${height}m tall & weigh ${weight}kgs`}
       </div>
-      <div className="flex flex-col justify-center text-3xl font-bold m-10 mx-auto">{message}</div>
+      <div className="flex flex-col justify-center text-3xl font-bold m-10 mx-auto">
+        {message}
+      </div>
     </div>
   );
 }
