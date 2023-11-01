@@ -23,7 +23,7 @@ export default function BMI() {
 
   return (
     <div>
-      <div className="flex justify-center ">
+      <div className="flex justify-center">
       <DarkModeIcon />
       </div>
       <div className="text-xl font-bold mb-10">
@@ -39,7 +39,7 @@ export default function BMI() {
           max="600"
           placeholder="kg"
           onChange={(e) => setWeight(parseFloat(e.target.value))}
-          className="dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 placeholder-black dark:placeholder-white placeholder:text-right rounded-lg"
+          className="dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-70 dark:text-white text-black bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 placeholder-black dark:placeholder-white placeholder:text-right rounded-lg"
         />
         <input
           step="any"
@@ -58,7 +58,7 @@ export default function BMI() {
           Submit
         </button>
       </form>
-      <div>
+      <div className="flex flex-col justify-center font-bold m-5">
         {Number.isNaN(height) ||
         Number.isNaN(weight) ||
         weight <= 0 ||
@@ -66,7 +66,7 @@ export default function BMI() {
           ? "Type in your measurement"
           : `You are ${height}m tall & weigh ${weight}kgs`}
       </div>
-      <div className="text-3xl font-bold m-10">{message}</div>
+      <div className="flex flex-col justify-center text-3xl font-bold m-10 mx-auto">{message}</div>
     </div>
   );
 }
