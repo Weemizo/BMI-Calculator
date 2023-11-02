@@ -10,7 +10,7 @@ export default function BMI() {
   const assign = (size: number) => (Number.isNaN(size) || size <= 0 ? 0 : size);
 
   const bmiCalc = (w: number, h: number) => {
-    const bmi = (assign(w) / Math.pow(assign(h), 2)).toFixed(2);
+    const bmi = (assign(w) / Math.pow(assign(h/100), 2)).toFixed(2);
     return Number.isNaN(parseInt(bmi))
       ? "Please type in correct numbers"
       : `Your BMI is ${bmi}`;
@@ -21,13 +21,19 @@ export default function BMI() {
     setMessage(bmiCalc(weight, height));
   };
 
+  // const system = () => {
+  //   const imperial = (assign(weight) * 703) / Math.pow(assign(height), 2);
+  //   const metric = assign(weight) / Math.pow(assign(height/100), 2);
+  //   return Number.isNaN(metric) ? imperial.toFixed(2) : metric.toFixed(2);    
+  // }
+
   return (
     <div>
       <div className="flex justify-center">
         <DarkModeIcon />
       </div>
       <div className="text-xl font-bold mb-10">
-        This app currently supports only the metric system. [kilograms / meters]
+        This app currently supports only the metric system. [kilograms / centimeters]
       </div>
       <form
         onSubmit={handleSubmit}
@@ -48,8 +54,8 @@ export default function BMI() {
           type="number"
           name="height"
           min="0.01"
-          max="3"
-          placeholder="m"
+          max="300"
+          placeholder="cm"
           onChange={(e) => setHeight(parseFloat(e.target.value))}
           className="dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 placeholder-black dark:placeholder-white placeholder:text-right rounded-lg"
         />
@@ -60,15 +66,15 @@ export default function BMI() {
           Submit
         </button>
       </form>
-      <div className="flex flex-col justify-center font-bold m-5">
+      <div className="flex justify-center font-bold m-5">
         {Number.isNaN(height) ||
         Number.isNaN(weight) ||
         weight <= 0 ||
         height <= 0
           ? "Type in your measurement"
-          : `You are ${height}m tall & weigh ${weight}kgs`}
+          : `You are ${height}cm tall & weigh ${weight}kgs`}
       </div>
-      <div className="flex flex-col justify-center text-3xl font-bold m-10 mx-auto">
+      <div className="flex justify-center text-3xl font-bold m-10 mx-auto">
         {message}
       </div>
     </div>
