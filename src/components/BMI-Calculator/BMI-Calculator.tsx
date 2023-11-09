@@ -12,7 +12,7 @@ export default function BMI() {
 
     const assign = (size: number) => (Number.isNaN(size) || size <= 0 ? 0 : size);
 
-    const imperial = (assign(weight) * 703) / Math.pow(assign(height), 2);
+    const imperial = ((assign(weight) / Math.pow(assign(height), 2)) * 703).toFixed(2);
 
     const metric = (assign(weight) / Math.pow(assign(height/100), 2)).toFixed(2)
 
@@ -46,7 +46,6 @@ export default function BMI() {
           type="number"
           name="weight"
           min="0.01"
-          max="600"
           placeholder={wPlaceholder}
           onChange={(e) => setWeight(parseFloat(e.target.value))}
           className="dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-70 dark:text-white text-black bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 placeholder-black dark:placeholder-white placeholder:text-right rounded-lg"
@@ -56,7 +55,6 @@ export default function BMI() {
           type="number"
           name="height"
           min="0.01"
-          max="300"
           placeholder={hPlaceholder}
           onChange={(e) => setHeight(parseFloat(e.target.value))}
           className="dark:bg-zinc-700 dark:hover:bg-zinc-600 dark:border-zinc-800 dark:hover:border-zinc-700 text-black dark:text-white bg-cyan-200 hover:bg-cyan-300 font-bold py-2 px-4 border-b-4 border-cyan-400 hover:border-cyan-600 placeholder-black dark:placeholder-white placeholder:text-right rounded-lg"
@@ -74,9 +72,9 @@ export default function BMI() {
         weight <= 0 ||
         height <= 0
           ? "Type in your measurement"
-          : `You are ${height}cm tall & weigh ${weight}kgs`}
+          : `You are ${height} ${hPlaceholder} tall & weigh ${weight} ${wPlaceholder}`}
       </div>
-      <div className="text-l font-bold m-10 ">
+      <div className="flex flex-col justify-center text-3xl font-bold m-10 items-center">
         {message}
         <input
           type="checkbox"
