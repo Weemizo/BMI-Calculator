@@ -9,12 +9,17 @@ export default function BMI() {
   const [system, setSystem] = useState<string>("metric");
 
   const bmiCalc = () => {
+    const assign = (size: number) =>
+      Number.isNaN(size) || size <= 0 ? 0 : size;
 
-    const assign = (size: number) => (Number.isNaN(size) || size <= 0 ? 0 : size);
+    const imperial = (
+      (assign(weight) / Math.pow(assign(height), 2)) *
+      703
+    ).toFixed(2);
 
-    const imperial = ((assign(weight) / Math.pow(assign(height), 2)) * 703).toFixed(2);
-
-    const metric = (assign(weight) / Math.pow(assign(height/100), 2)).toFixed(2)
+    const metric = (assign(weight) / Math.pow(assign(height / 100), 2)).toFixed(
+      2,
+    );
 
     const bmi = system === "metric" ? metric : imperial;
 
@@ -31,12 +36,12 @@ export default function BMI() {
   const wPlaceholder = system === "metric" ? "kg" : "lbs";
 
   const hPlaceholder = system === "metric" ? "cm" : "inches";
-  
+
   return (
     <div className="flex flex-col justify-center">
       <div className="flex justify-center">
         <DarkModeIcon />
-        </div>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="flex flex-col justify-center space-y-4 w-auto max-w-sm mx-auto"
@@ -78,9 +83,11 @@ export default function BMI() {
         {message}
         <input
           type="checkbox"
-          onChange={() => setSystem(system === "metric" ? "imperial" : "metric")}
-      />
-      Check, if Imperial
+          onChange={() =>
+            setSystem(system === "metric" ? "imperial" : "metric")
+          }
+        />
+        Check, if Imperial
       </div>
     </div>
   );
