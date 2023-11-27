@@ -28,11 +28,11 @@ export default function BMI() {
     const bmiResult = () => {
       if (parseInt(bmi)>=30) {
         return `You're morbidly obese, contact your doctor immediately. ${bmiMessage}`
-      } else if (parseInt(bmi)>=25 || parseInt(bmi)<30) {
+      } else if (parseInt(bmi)>=25 && parseInt(bmi)<30) {
         return `You're obese. ${bmiMessage}`
-      } else if (parseInt(bmi)>=18.5 || parseInt(bmi)<25) {
+      } else if (parseInt(bmi)>=18.5 && parseInt(bmi)<25) {
         return `Normal. ${bmiMessage}`
-      } else if (parseInt(bmi)>=17.5 || parseInt(bmi)<18.5) {
+      } else if (parseInt(bmi)>=17.5 && parseInt(bmi)<18.5) {
         return `You're underweight, a little bit. ${bmiMessage}`
       } else `You're severly underweight. ${bmiMessage}`
     }
